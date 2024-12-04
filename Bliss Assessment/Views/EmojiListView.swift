@@ -35,6 +35,7 @@ struct EmojiListView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(Color.blue)
                                         )
+                                        .padding(5)
                                 } placeholder: {
                                     ProgressView()
                                 }
@@ -50,19 +51,14 @@ struct EmojiListView: View {
                     }
                     .onTapGesture {
                         handleTap(key: key)
-                    }
-                }
+                    }                }
+                
             }
             .padding()
-            .refreshable {
-                visibleEmojis = Array(viewModel.emojis.keys.sorted())
-                tappedEmojis.removeAll()
-                restoreEmojiList()
-            }
             
+        } .refreshable {
+            restoreEmojiList()
         }
-        
-        .navigationTitle("Emoji List")
         .onAppear {
             viewModel.fetchEmojis()
         }
