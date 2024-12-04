@@ -12,37 +12,22 @@ struct ContentView: View {
     @State private var search = ""
     var body: some View {
         NavigationView{
-
-        
-                VStack {
-                    if viewModel.emojis.isEmpty {
-                        Button(action: {
-                            viewModel.fetchEmojis()
-                        }) {
-                            Text("Get Emojis")
-                        }
-                    } else {
-                        List(viewModel.emojis.keys.sorted(), id: \.self) { key in
-                            HStack {
-                                if let url = viewModel.emojis[key],
-                                   let imageUrl = URL(string: url) {
-                                    AsyncImage(url: imageUrl) { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    
-                    if let errorMessage = viewModel.errorMessage {
-                        Text("Error: \(errorMessage)")
-                    }
-                }
-            }
+            
+            
+            VStack {
+                NavigationLink("RANDOM EMOJI", destination: EmojiListView())
+                NavigationLink("EMOJI LIST", destination: EmojiListView())
+                HStack{
+                    TextField("Digite o CEP", text: $search)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    NavigationLink("SEARCH", destination: EmojiListView())}
+                NavigationLink("AVATAR LIST", destination: AvatarListView())
+                NavigationLink("APPLE REPOS", destination: RepositoriesView())
+            }.padding()
+    
         }
     }
+}
 
 
 

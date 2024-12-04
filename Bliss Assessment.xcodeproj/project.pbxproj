@@ -18,6 +18,7 @@
 		44B5F0602CFF840B00D70E02 /* RepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5F05F2CFF840B00D70E02 /* RepositoriesView.swift */; };
 		44B5F0622CFF9B1000D70E02 /* RandomEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5F0612CFF9B1000D70E02 /* RandomEmoji.swift */; };
 		44B5F0642CFF9C3000D70E02 /* EmojiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5F0632CFF9C3000D70E02 /* EmojiViewModel.swift */; };
+		44B5F0692CFFAC8E00D70E02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5F0682CFFAC8E00D70E02 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		44B5F05F2CFF840B00D70E02 /* RepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesView.swift; sourceTree = "<group>"; };
 		44B5F0612CFF9B1000D70E02 /* RandomEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomEmoji.swift; sourceTree = "<group>"; };
 		44B5F0632CFF9C3000D70E02 /* EmojiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewModel.swift; sourceTree = "<group>"; };
+		44B5F0682CFFAC8E00D70E02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		44B5F0412CFF826E00D70E02 /* Bliss Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				44B5F0672CFFAC6800D70E02 /* DataManagement */,
 				44B5F0582CFF839B00D70E02 /* ViewModels */,
 				44B5F0572CFF839400D70E02 /* Models */,
 				44B5F0552CFF838100D70E02 /* Views */,
@@ -110,6 +113,14 @@
 				44B5F0632CFF9C3000D70E02 /* EmojiViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		44B5F0672CFFAC6800D70E02 /* DataManagement */ = {
+			isa = PBXGroup;
+			children = (
+				44B5F0682CFFAC8E00D70E02 /* CoreDataManager.swift */,
+			);
+			path = DataManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				44B5F0602CFF840B00D70E02 /* RepositoriesView.swift in Sources */,
 				44B5F05E2CFF83EF00D70E02 /* AvatarListView.swift in Sources */,
 				44B5F05A2CFF83D000D70E02 /* ContentView.swift in Sources */,
+				44B5F0692CFFAC8E00D70E02 /* CoreDataManager.swift in Sources */,
 				44B5F04F2CFF827000D70E02 /* Bliss_Assessment.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
