@@ -9,54 +9,91 @@ import SwiftUI
 
 struct EmojiListView: View {
     @StateObject private var viewModel = EmojiViewModel()
+    @State private var visibleEmojis: [String] = []
+    @State private var tappedEmojis: Set<String> = []
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                if viewModel.emojis.isEmpty {
-                    Button(action: {
-                        viewModel.fetchEmojis()
-                    }) {
-                        Text("Get Emojis")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                } else {
-                    List(viewModel.emojis.keys.sorted(), id: \.self) { key in
-                        HStack {
-                            if let url = viewModel.emojis[key],
-                               let imageUrl = URL(string: url) {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 20) {
+                ForEach(visibleEmojis, id: \.self) { key in
+                    VStack {
+                        ZStack{
+                            if let urlString = viewModel.emojis[key],
+                               let imageUrl = URL(string: urlString) {
                                 AsyncImage(url: imageUrl) { image in
                                     image.resizable()
                                         .scaledToFit()
-                                        .frame(width: 40, height: 40)
+                                        .frame(width: 85, height: 85)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.blue)
+                                        )
                                 } placeholder: {
                                     ProgressView()
                                 }
                             }
+                            if tappedEmojis.contains(key) {
+                                Text("X")
+                                    .font(.system(size: 90))
+                                    .foregroundColor(.red)
+                                
+                                
+                            }
                         }
                     }
+                    .onTapGesture {
+                        handleTap(key: key)
+                    }
                 }
-                
-                if let errorMessage = viewModel.errorMessage {
-                    Text("Error: \(errorMessage)")
-                        .foregroundColor(.red)
-                        .padding()
-                }
-                
             }
-            .onAppear {
-                viewModel.fetchEmojis()
+            .padding()
+            .refreshable {
+                visibleEmojis = Array(viewModel.emojis.keys.sorted())
+                tappedEmojis.removeAll()
+                restoreEmojiList()
             }
-            .onChange(of: viewModel.emojis) { _ in
-                viewModel.salvarEmojisCoreData()
-            }
+            
+        }
+        
+        .navigationTitle("Emoji List")
+        .onAppear {
+            viewModel.fetchEmojis()
+        }
+        .onChange(of: viewModel.emojis) { newEmojis in
+            visibleEmojis = Array(newEmojis.keys.sorted())
+        }    }
+    private func removeEmoji(key: String) {
+        tappedEmojis.remove(key)
+        if let index = visibleEmojis.firstIndex(of: key) {
+            visibleEmojis.remove(at: index)
+        }
+    }
+    private func toggleTappedState(for key: String) {
+        if tappedEmojis.contains(key) {
+            tappedEmojis.remove(key)
+        } else {
+            tappedEmojis.insert(key)
+        }
+    }
+    private func restoreEmojiList() {
+        visibleEmojis = Array(viewModel.emojis.keys.sorted())
+        tappedEmojis.removeAll()
+    }
+    private func handleTap(key: String) {
+        if tappedEmojis.contains(key) {
+            removeEmoji(key: key)
+        } else {
+            toggleTappedState(for: key)
         }
     }
 }
-
-
 
 #Preview {
     EmojiListView()
