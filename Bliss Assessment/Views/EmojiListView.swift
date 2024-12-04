@@ -9,34 +9,6 @@ import SwiftUI
 
 struct EmojiListView: View {
     @StateObject private var viewModel = EmojiViewModel()
-    
-    //    var body: some View {
-    //        if viewModel.emojis.isEmpty {
-    //            Button(action: {
-    //                viewModel.fetchEmojis()
-    //            }) {
-    //                Text("Get Emojis")
-    //            }
-    //        } else {
-    //            List(viewModel.emojis.keys.sorted(), id: \.self) { key in
-    //                HStack {
-    //                    if let url = viewModel.emojis[key],
-    //                       let imageUrl = URL(string: url) {
-    //                        AsyncImage(url: imageUrl) { image in
-    //                            image.resizable()
-    //                        } placeholder: {
-    //                            ProgressView()
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //        }
-    //
-    //        if let errorMessage = viewModel.errorMessage {
-    //            Text("Error: \(errorMessage)")
-    //        }
-    //    }
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -63,7 +35,6 @@ struct EmojiListView: View {
                                     ProgressView()
                                 }
                             }
-                            Text(key)
                         }
                     }
                 }
@@ -75,7 +46,6 @@ struct EmojiListView: View {
                 }
                 
             }
-            //                .navigationBarBackButtonHidden(false)
             .onAppear {
                 viewModel.fetchEmojis()
             }

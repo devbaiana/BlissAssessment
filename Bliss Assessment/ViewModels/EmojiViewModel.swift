@@ -86,6 +86,11 @@ class EmojiViewModel: ObservableObject{
             })
             .store(in: &cancellables)
     }
+    func getRandomEmoji() -> (name: String, url: String)? {
+        guard !emojis.isEmpty else { return nil }
+        let randomKey = emojis.keys.randomElement()!
+        return (name: randomKey, url: emojis[randomKey]) as! (name: String, url: String)
+    }
 }
 
 
