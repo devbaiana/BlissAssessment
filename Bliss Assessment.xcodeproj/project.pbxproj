@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		446B3ECF2D01392F005735BB /* PersistenceAvatarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B3ECE2D01392F005735BB /* PersistenceAvatarController.swift */; };
+		446B3ED12D01399C005735BB /* AvatarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B3ED02D01399C005735BB /* AvatarViewModel.swift */; };
+		446B3ED52D013FD8005735BB /* AvatarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B3ED42D013FD8005735BB /* AvatarDetailView.swift */; };
 		44B5F0432CFF826E00D70E02 /* Bliss_AssessmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5F0422CFF826E00D70E02 /* Bliss_AssessmentApp.swift */; };
 		44B5F0472CFF827000D70E02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B5F0462CFF827000D70E02 /* Assets.xcassets */; };
 		44B5F04A2CFF827000D70E02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B5F0492CFF827000D70E02 /* Preview Assets.xcassets */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		446B3ECE2D01392F005735BB /* PersistenceAvatarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceAvatarController.swift; sourceTree = "<group>"; };
+		446B3ED02D01399C005735BB /* AvatarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewModel.swift; sourceTree = "<group>"; };
+		446B3ED42D013FD8005735BB /* AvatarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetailView.swift; sourceTree = "<group>"; };
 		44B5F03F2CFF826E00D70E02 /* Bliss Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bliss Assessment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B5F0422CFF826E00D70E02 /* Bliss_AssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bliss_AssessmentApp.swift; sourceTree = "<group>"; };
 		44B5F0462CFF827000D70E02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		446B3ECD2D01390B005735BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				446B3ECE2D01392F005735BB /* PersistenceAvatarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		44B5F0362CFF826E00D70E02 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +81,7 @@
 		44B5F0412CFF826E00D70E02 /* Bliss Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				446B3ECD2D01390B005735BB /* Controller */,
 				44B5F0672CFFAC6800D70E02 /* DataManagement */,
 				44B5F0582CFF839B00D70E02 /* ViewModels */,
 				44B5F0572CFF839400D70E02 /* Models */,
@@ -91,6 +106,7 @@
 		44B5F0552CFF838100D70E02 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				446B3ED42D013FD8005735BB /* AvatarDetailView.swift */,
 				44B5F0592CFF83D000D70E02 /* ContentView.swift */,
 				44B5F05B2CFF83E400D70E02 /* EmojiListView.swift */,
 				44B5F0612CFF9B1000D70E02 /* RandomEmoji.swift */,
@@ -111,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				44B5F0632CFF9C3000D70E02 /* EmojiViewModel.swift */,
+				446B3ED02D01399C005735BB /* AvatarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -201,8 +218,11 @@
 				44B5F0602CFF840B00D70E02 /* RepositoriesView.swift in Sources */,
 				44B5F05E2CFF83EF00D70E02 /* AvatarListView.swift in Sources */,
 				44B5F05A2CFF83D000D70E02 /* ContentView.swift in Sources */,
+				446B3ED52D013FD8005735BB /* AvatarDetailView.swift in Sources */,
 				44B5F0692CFFAC8E00D70E02 /* CoreDataManager.swift in Sources */,
 				44B5F04F2CFF827000D70E02 /* Bliss_Assessment.xcdatamodeld in Sources */,
+				446B3ECF2D01392F005735BB /* PersistenceAvatarController.swift in Sources */,
+				446B3ED12D01399C005735BB /* AvatarViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
