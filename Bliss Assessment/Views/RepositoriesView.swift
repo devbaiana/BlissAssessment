@@ -8,8 +8,52 @@
 import SwiftUI
 
 struct RepositoriesView: View {
+    @StateObject private var viewModel = ReposViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if viewModel.isLoading && viewModel.repositories.isEmpty {
+                ProgressView("Loading...")
+            } else {
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 15) {
+                        ForEach(viewModel.repositories) { repository in
+                            VStack(alignment: .leading) {
+                                Text(repository.name)
+                            }
+                            .padding()
+                        }
+
+                        if viewModel.isLoading {
+                            ProgressView("Loading...")
+                        } else {
+                            Color.clear
+                                .frame(height: 1)
+                                .onAppear {
+                                    viewModel.fetchRepositories()
+                                }
+                        }
+                    }
+                    .padding()
+                }
+            }
+        }
+        .navigationTitle("Apple Repositories")
+        .onAppear {
+            if viewModel.repositories.isEmpty {
+                viewModel.fetchRepositories()
+            }
+        }
+        .alert(isPresented: Binding<Bool>(
+            get: { viewModel.errorMessage != nil },
+            set: { _ in viewModel.errorMessage = nil }
+        )) {
+            Alert(
+                title: Text("Erro"),
+                message: Text(viewModel.errorMessage ?? ""),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		446B3ED12D01399C005735BB /* AvatarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B3ED02D01399C005735BB /* AvatarViewModel.swift */; };
 		446B3ED52D013FD8005735BB /* AvatarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B3ED42D013FD8005735BB /* AvatarDetailView.swift */; };
+		446B3EDE2D01DD4D005735BB /* ReposViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B3EDD2D01DD4D005735BB /* ReposViewModel.swift */; };
 		44B5F0432CFF826E00D70E02 /* Bliss_AssessmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5F0422CFF826E00D70E02 /* Bliss_AssessmentApp.swift */; };
 		44B5F0472CFF827000D70E02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B5F0462CFF827000D70E02 /* Assets.xcassets */; };
 		44B5F04A2CFF827000D70E02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B5F0492CFF827000D70E02 /* Preview Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		446B3ED02D01399C005735BB /* AvatarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewModel.swift; sourceTree = "<group>"; };
 		446B3ED42D013FD8005735BB /* AvatarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetailView.swift; sourceTree = "<group>"; };
+		446B3EDD2D01DD4D005735BB /* ReposViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposViewModel.swift; sourceTree = "<group>"; };
 		44B5F03F2CFF826E00D70E02 /* Bliss Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bliss Assessment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B5F0422CFF826E00D70E02 /* Bliss_AssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bliss_AssessmentApp.swift; sourceTree = "<group>"; };
 		44B5F0462CFF827000D70E02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,13 +54,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		446B3ECD2D01390B005735BB /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		44B5F0362CFF826E00D70E02 = {
 			isa = PBXGroup;
 			children = (
@@ -78,10 +73,8 @@
 		44B5F0412CFF826E00D70E02 /* Bliss Assessment */ = {
 			isa = PBXGroup;
 			children = (
-				446B3ECD2D01390B005735BB /* Controller */,
 				44B5F0672CFFAC6800D70E02 /* DataManagement */,
 				44B5F0582CFF839B00D70E02 /* ViewModels */,
-				44B5F0572CFF839400D70E02 /* Models */,
 				44B5F0552CFF838100D70E02 /* Views */,
 				44B5F0422CFF826E00D70E02 /* Bliss_AssessmentApp.swift */,
 				44B5F0462CFF827000D70E02 /* Assets.xcassets */,
@@ -113,18 +106,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		44B5F0572CFF839400D70E02 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		44B5F0582CFF839B00D70E02 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				44B5F0632CFF9C3000D70E02 /* EmojiViewModel.swift */,
 				446B3ED02D01399C005735BB /* AvatarViewModel.swift */,
+				446B3EDD2D01DD4D005735BB /* ReposViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -209,6 +196,7 @@
 			files = (
 				44B5F0622CFF9B1000D70E02 /* RandomEmoji.swift in Sources */,
 				44B5F04C2CFF827000D70E02 /* Persistence.swift in Sources */,
+				446B3EDE2D01DD4D005735BB /* ReposViewModel.swift in Sources */,
 				44B5F05C2CFF83E400D70E02 /* EmojiListView.swift in Sources */,
 				44B5F0642CFF9C3000D70E02 /* EmojiViewModel.swift in Sources */,
 				44B5F0432CFF826E00D70E02 /* Bliss_AssessmentApp.swift in Sources */,
