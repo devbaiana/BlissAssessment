@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct AvatarListView: View {
+    @StateObject private var viewModel = AvatarViewModel(username: "")
+    @State private var avatars: [UserAvatar] = []
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVStack(spacing: 20) {
+                ForEach(avatars, id: \.self) { avatar in
+                    HStack {
+                        if let imageData = avatar.imageData, let image = UIImage(data: imageData) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
+                                .clipShape(Circle())
+                        }
+                        Text(avatar.username ?? "Unknown User")
+                            .font(.headline)
+                    }
+                    .padding()
+                }
+            }
+        }
+        .onAppear {
+            avatars = viewModel.fetchAllAvatars()
+        }
     }
 }
 

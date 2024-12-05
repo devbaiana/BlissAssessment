@@ -57,14 +57,14 @@ class AvatarViewModel: ObservableObject {
             .flatMap { avatarUrl in
                 URLSession.shared.dataTaskPublisher(for: avatarUrl)
                     .map { $0.data }
-                    .mapError { $0 as Error } // Converte URLError para Error
+                    .mapError { $0 as Error }
                     .eraseToAnyPublisher()
             }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 self.isLoading = false
                 if case let .failure(error) = completion {
-                    print("Erro ao buscar avatar: \(error)")
+                    print("Avatar not found: \(error)")
                 }
             }, receiveValue: { data in
                 self.avatarImage = UIImage(data: data)
@@ -81,10 +81,24 @@ class AvatarViewModel: ObservableObject {
         do {
             try context.save()
         } catch {
-            print("Falha ao salvar avatar: \(error)")
+            print("Something went wrong to save avatar: \(error)")
         }
     }
 }
+extension AvatarViewModel {
+    func fetchAllAvatars() -> [UserAvatar] {
+        let fetchRequest: NSFetchRequest<UserAvatar> = UserAvatar.fetchRequest()
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results
+        } catch {
+            print("Failed to fetch avatars: \(error)")
+            return []
+        }
+    }
+}
+
 
 struct GitHubUser: Codable {
     let avatar_url: String
