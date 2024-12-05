@@ -21,6 +21,7 @@ struct RepositoriesView: View {
                             VStack(alignment: .leading) {
                                 Text(repository.name)
                             }
+                            .foregroundColor(.white)
                             .padding()
                         }
 
@@ -39,6 +40,7 @@ struct RepositoriesView: View {
             }
         }
         .navigationTitle("Apple Repositories")
+        .background(Color("Cinza-bliss"))
         .onAppear {
             if viewModel.repositories.isEmpty {
                 viewModel.fetchRepositories()

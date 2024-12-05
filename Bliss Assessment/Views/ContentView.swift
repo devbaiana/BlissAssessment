@@ -16,28 +16,58 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
+            
             VStack(spacing: 20) {
-                
+                Spacer()
                 NavigationLink("RANDOM EMOJI", destination: RandomEmoji(emojiName: "", emojiURL: ""))
+                    .padding(8)
+                    .background(Color("Cinza-bliss"))
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .cornerRadius(8)
                 
                 NavigationLink("EMOJI LIST", destination: EmojiListView())
+                    .padding(8)
+                    .background(Color("Cinza-bliss"))
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .cornerRadius(8)
+                
                 HStack{
                     TextField("Search Username", text: $username) .textFieldStyle(RoundedBorderTextFieldStyle())
                     NavigationLink(destination: AvatarDetailView(username: username)) {
                         Text("Search")
-                    }
+                    }.padding(8)
+                        .background(Color("Cinza-bliss"))
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .cornerRadius(8)
+                        
                 }
                 
                 NavigationLink("AVATAR LIST", destination: AvatarListView())
+                    .padding(8)
+                    .background(Color("Cinza-bliss"))
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .cornerRadius(8)
                 
                 NavigationLink("APPLE REPOS", destination: RepositoriesView())
-            }.padding()
+                    .padding(8)
+                    .background(Color("Cinza-bliss"))
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .cornerRadius(8)
+                Spacer()
+            }
+            .padding(.horizontal, 20.0)
+            .background(Color("Blue-bliss"))
             
         }
     }
     
-}
 
+}
 #Preview {
     ContentView()
 }

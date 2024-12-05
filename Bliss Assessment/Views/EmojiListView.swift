@@ -64,7 +64,8 @@ struct EmojiListView: View {
         }
         .onChange(of: viewModel.emojis) { newEmojis in
             visibleEmojis = Array(newEmojis.keys.sorted())
-        }    }
+        }.background(Color("Cinza-bliss"))
+    }
     private func removeEmoji(key: String) {
         tappedEmojis.remove(key)
         if let index = visibleEmojis.firstIndex(of: key) {

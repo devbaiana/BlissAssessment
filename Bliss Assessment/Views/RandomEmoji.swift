@@ -18,7 +18,11 @@ struct RandomEmoji: View {
     let emojiURL: String?
 
     var body: some View {
-        VStack{
+        ZStack{
+            Color("Cinza-bliss")
+                .ignoresSafeArea()
+            VStack{
+                Spacer()
                 if let emoji = randomEmoji {
                     VStack {
                         if let urlString = emoji.url, let imageUrl = URL(string: urlString) {
@@ -41,14 +45,14 @@ struct RandomEmoji: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-
+                
                 Spacer()
             }
             .padding()
             .onAppear {
                 viewModel.fetchEmojis()
             }
-
+        }
         }
     }
 

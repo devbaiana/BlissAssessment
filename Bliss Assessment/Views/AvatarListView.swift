@@ -13,6 +13,7 @@ struct AvatarListView: View {
 
     var body: some View {
         ScrollView {
+//            ZStack
             LazyVStack(spacing: 20) {
                 ForEach(avatars, id: \.self) { avatar in
                     HStack {
@@ -25,6 +26,7 @@ struct AvatarListView: View {
                         }
                         Text(avatar.username ?? "Unknown User")
                             .font(.headline)
+                            .foregroundColor(.white)
                         
                         Spacer()
                         
@@ -39,7 +41,7 @@ struct AvatarListView: View {
                     .padding()
                 }
             }
-        }
+        }.background(Color("Cinza-bliss"))
         .onAppear {
             avatars = viewModel.fetchAllAvatars()
         }

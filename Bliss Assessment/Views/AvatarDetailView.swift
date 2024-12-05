@@ -15,6 +15,9 @@ struct AvatarDetailView: View {
     }
     
     var body: some View {
+        ZStack{
+            Color(Color("Cinza-bliss"))
+                .ignoresSafeArea()
         VStack {
             if viewModel.isLoading {
                 ProgressView()
@@ -26,16 +29,19 @@ struct AvatarDetailView: View {
                     .clipShape(Circle())
                     .padding()
             } else {
-                Text("Nenhuma imagem para exibir")
+                Text("User not found")
                     .padding()
+                    .foregroundColor(.white)
             }
             
             Spacer()
+        }
         }
         .onAppear {
             viewModel.search()
         }
         .navigationTitle(viewModel.username)
+        .foregroundColor(.white)
     }
 }
 
