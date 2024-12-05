@@ -25,6 +25,16 @@ struct AvatarListView: View {
                         }
                         Text(avatar.username ?? "Unknown User")
                             .font(.headline)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            deleteAvatar(avatar)
+                        }) {
+                            Image(systemName: "trash")
+                                .foregroundColor(.red)
+                        }
+                        .padding(.leading, 10)
                     }
                     .padding()
                 }
@@ -34,7 +44,12 @@ struct AvatarListView: View {
             avatars = viewModel.fetchAllAvatars()
         }
     }
+    private func deleteAvatar(_ avatar: UserAvatar) {
+            viewModel.deleteAvatar(avatar)
+            avatars = viewModel.fetchAllAvatars() 
+        }
 }
+
 
 #Preview {
     AvatarListView()

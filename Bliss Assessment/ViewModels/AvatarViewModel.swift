@@ -97,6 +97,15 @@ extension AvatarViewModel {
             return []
         }
     }
+    func deleteAvatar(_ avatar: UserAvatar) {
+            context.delete(avatar)
+            do {
+                try context.save()
+                print("Avatar deleted \(avatar.username ?? "Unknown")")
+            } catch {
+                print("Something went wrong to delete avatar: \(error)")
+            }
+        }
 }
 
 
